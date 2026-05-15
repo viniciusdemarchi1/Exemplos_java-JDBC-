@@ -11,13 +11,13 @@ public class conexao {
             return DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/escola",
                     "root",
-                    "mysqlfatec"
+                    ""
 
             );
 
 
         }catch (SQLException e){
-            JOptionPane.showInputDialog(null,"erro na conexão");
+            JOptionPane.showMessageDialog(null,"erro na conexão " + e.getMessage() );
             return null;
         }
     }
