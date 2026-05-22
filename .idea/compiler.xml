@@ -9,8 +9,5 @@
         <module name="exemploJDBC" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="exemploJDBC" target="19" />
-    </bytecodeTargetLevel>
   </component>
 </project>
