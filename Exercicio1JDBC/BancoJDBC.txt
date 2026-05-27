@@ -1,0 +1,17 @@
+create database dbexercicio;
+use dbexercicio;
+
+create table empresa(
+id integer primary key auto_increment unique,
+nome varchar(65),
+qtd_func int,
+local varchar(100)
+);
+
+create table funcionario(
+id integer primary key auto_increment unique,
+nome varchar(65),
+data_nasc date,
+empresa int,
+foreign key (empresa) references empresa(id)
+)
