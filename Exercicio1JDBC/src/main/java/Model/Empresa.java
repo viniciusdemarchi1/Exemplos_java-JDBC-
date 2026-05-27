@@ -13,7 +13,9 @@ public class Empresa {
         this.local = local;
     }
 
+public Empresa(){
 
+}
     public String getNome() {
         return nome;
     }
