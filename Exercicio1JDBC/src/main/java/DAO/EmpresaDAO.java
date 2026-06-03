@@ -16,7 +16,7 @@ public EmpresaDAO() {
 
 public void cadastrarEmpresa(Empresa empresa) {
     Connection conn = conexao.conectar();
-    String sql = "INSERT INTO empresa (nome,qtdeFunc,local )VALUES(?,?,?)";
+    String sql = "INSERT INTO empresa (nome,qtd_func,local )VALUES(?,?,?)";
 
     try {
         PreparedStatement stmt = conn.prepareStatement(sql);

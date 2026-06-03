@@ -32,7 +32,11 @@ public class Main {
                     2 - Cadastrar funcionário
                     3 - Consultar empresa
                     4 - Consultar funcionário
-                    5 - Sair
+                    5 - Alterar empresa
+                    6 - Alterar funcionario
+                    7 - Excluir empresa
+                    8 - Excluir funcionario
+                    9 - Sair
                     
                     Escolha uma opção:
                     """;
@@ -74,7 +78,7 @@ public class Main {
                     );
                     funcionario.setData_nasc(java.sql.Date.valueOf(LocalDate.parse(dataTexto)));
 
-                    funcionario.setId(
+                    funcionario.setEmpresa(
                             Integer.parseInt(
                                     JOptionPane.showInputDialog("Digite o código da empresa:")
                             )

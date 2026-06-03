@@ -13,7 +13,7 @@ public class conexao {
 
     public static Connection conectar() {
         try {
-            JOptionPane.showMessageDialog((Component)null, "conectado com sucesso " );
+
             return DriverManager.getConnection("jdbc:mysql://localhost:3306/dbexercicio", "root", "");
 
         } catch (SQLException e) {

@@ -17,13 +17,14 @@ public class FuncionarioDAO {
 
     public void cadastrarFuncionario(Funcionario funcionario) {
         Connection conn = conexao.conectar();
-        String sql = "INSERT INTO funcionario (nome,data_nasc,id )VALUES(?,?,?)";
+        String sql = "INSERT INTO funcionario (nome,data_nasc,id,empresa)VALUES(?,?,?,?)";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1,funcionario.getNome());
             stmt.setDate(2, new java.sql.Date(funcionario.getData_nasc().getTime()));
             stmt.setInt(3,funcionario.getId());
+            stmt.setInt(4, funcionario.getEmpresa());
 
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Funcionario cadastrado com sucesso ");
