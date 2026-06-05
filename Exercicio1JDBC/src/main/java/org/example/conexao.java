@@ -14,7 +14,7 @@ public class conexao {
     public static Connection conectar() {
         try {
 
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/dbexercicio", "root", "");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/dbexercicio", "root", "Vadmf0910.");
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog((Component)null, "erro na conexão " + e.getMessage());

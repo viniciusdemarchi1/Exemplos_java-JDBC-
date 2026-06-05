@@ -61,5 +61,59 @@ public class FuncionarioDAO {
             JOptionPane.showMessageDialog(null,"Erro: "+e.getMessage());
         }
     }
+public void alterar(Funcionario funcionario) {
+    try (Connection conn = conexao.conectar()) {
+        if (conn == null) {
+            return;
+        }
+
+        String sql = "update funcionario set nome = ?, data_nasc = ?, empresa = ? where id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, funcionario.getNome());
+            stmt.setDate(2, new java.sql.Date(funcionario.getData_nasc().getTime()));
+            stmt.setInt(3, funcionario.getEmpresa());
+            stmt.setInt(4, funcionario.getId());
+
+            int linhasModificadas = stmt.executeUpdate();
+
+            if (linhasModificadas > 0) {
+                JOptionPane.showMessageDialog(null, "Funcionario alterado com sucesso");
+            } else {
+                JOptionPane.showMessageDialog(null, "Funcionario não encontrada");
+            }
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
+    }
+}
+
+    public void remover(int id) {
+
+
+        try (Connection conn = conexao.conectar()) {
+            if (conn == null) {
+                return;
+            }
+
+            String sql = "delete from funcionario where id = ?";
+
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setInt(1, id);
+
+                int linhasModifacadas = stmt.executeUpdate();
+
+                if (linhasModifacadas > 0) {
+                    JOptionPane.showMessageDialog(null, "Funcionario removido com sucesso");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Funcionario não encontrada");
+                }
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
+        }
+    }
+
+
 
 }
